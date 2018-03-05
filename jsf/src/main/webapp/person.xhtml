@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html lang="fr"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{personBean.persistentPerson.firstname} #{personBean.persistentPerson.lastname}</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <p:button id="button-persons" outcome="persons.faces" value="Liste des personnes"></p:button>
+        <p:panel id="person" header="#{personBean.persistentPerson.firstname} #{personBean.persistentPerson.lastname}">
+            <p>Âge : <h:outputText value="#{personBean.persistentPerson.age}"/> an<h:outputText
+                    value="#{personBean.persistentPerson.age > 1 ? 's' : ''}"/></p>
+            <p:panel id="relations" header="Relations">
+                <ul>
+                    <c:forEach items="#{personBean.persistentPerson.persistentPersonRelationshipsFrom}" var="relation">
+                        <li>
+                            <a href="person.faces?id=#{relation.persistentPersonFrom.id}"><h:outputText value="#{relation.persistentPersonFrom.firstname} #{relation.persistentPersonFrom.lastname}"/></a>&#160;<h:outputText value="#{relation.persistentRelationship.relation}"/>&#160;<a href="person.faces?id=#{relation.persistentPersonTo.id}"><h:outputText value="#{relation.persistentPersonTo.firstname} #{relation.persistentPersonTo.lastname}"/></a>
+                        </li>
+                    </c:forEach>
+                    <c:forEach items="#{personBean.persistentPerson.persistentPersonRelationshipsTo}" var="relation">
+                        <li>
+                            <a href="person.faces?id=#{relation.persistentPersonFrom.id}"><h:outputText value="#{relation.persistentPersonFrom.firstname} #{relation.persistentPersonFrom.lastname}"/></a>&#160;<h:outputText value="#{relation.persistentRelationship.relation}"/>&#160;<a href="person.faces?id=#{relation.persistentPersonTo.id}"><h:outputText value="#{relation.persistentPersonTo.firstname} #{relation.persistentPersonTo.lastname}"/></a>
+                        </li>
+                    </c:forEach>
+                </ul>
+            </p:panel>
+        </p:panel>
+    </h:body>
+</html>

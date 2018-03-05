@@ -1,0 +1,24 @@
+p, ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+#button-persons {
+    margin-bottom: 8px;
+}
+
+.ui-panel .ui-panel-titlebar {
+    padding: .5em;
+}
+
+.ui-panel .ui-panel-content {
+    padding: .7em .5em .5em .5em;
+}
+
+#relations {
+    margin-top: .5em;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="fr.unicaen.master.dnr2i.cc.library.person">
+
+    <class name="PersistentPerson" table="person">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="firstname"/>
+        <property name="lastname"/>
+        <property name="age"/>
+        <set name="persistentPersonRelationshipsFrom" cascade="delete" table="person_relationship" lazy="false">
+            <key column="id_from"/>
+            <one-to-many class="fr.unicaen.master.dnr2i.cc.library.personrelationship.PersistentPersonRelationship"/>
+        </set>
+        <set name="persistentPersonRelationshipsTo" cascade="delete" table="person_relationship" lazy="false">
+            <key column="id_to"/>
+            <one-to-many class="fr.unicaen.master.dnr2i.cc.library.personrelationship.PersistentPersonRelationship"/>
+        </set>
+    </class>
+
+</hibernate-mapping>

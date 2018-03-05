@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>fr.unicaen.master.dnr2i.cc</groupId>
+    <artifactId>fil_rouge</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>hibernate</module>
+        <module>jsf</module>
+        <module>library</module>
+        <module>service</module>
+        <module>service_servlet</module>
+        <module>sql</module>
+    </modules>
+</project>
